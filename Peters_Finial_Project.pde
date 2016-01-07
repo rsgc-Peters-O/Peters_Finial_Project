@@ -8,17 +8,21 @@ float x1;
 float x2;
 float x3;
 float x4;
+int y1;
+int y2;
 
 void setup() {
   size (600, 600);
 
   //Animations of the circles
-  
+
   x=0;
   x1=100;
   x2=200;
   x3=300;
   x4=400;
+  y1=int(random(0, 50));
+  y2=int(random(0, 50));
 }
 
 void draw() {
@@ -34,7 +38,7 @@ void draw() {
   ellipse(x4, 100, 40, 40);
 
   //The animation of the circles
-  
+
   x=x+1.5;
   x1=x1+1.5;
   x2=x2+1.5;
@@ -48,7 +52,9 @@ void draw() {
   line(370, 500, 370, 550);
   line(370, 550, 150, 550);
 
-
+text(""+y1,200,525);
+text("+"+y2,220,525);
+text("=",245,525);
   //Line for the possible equation
 
   text("y:"+mouseY, 10, 10);
