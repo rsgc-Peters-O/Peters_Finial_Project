@@ -10,6 +10,11 @@ float x3;
 float x4;
 int y1;
 int y2;
+int a1;
+int a2;
+int a3;
+int a4;
+int a5;
 
 void setup() {
   size (600, 600);
@@ -23,6 +28,11 @@ void setup() {
   x4=400;
   y1=int(random(0, 50));
   y2=int(random(0, 50));
+  a1=27;
+  a2= 45;
+  a3= 21;
+  a4= 56;
+  a5= y1+y2;
 }
 
 void draw() {
@@ -38,12 +48,19 @@ void draw() {
   ellipse(x4, 100, 40, 40);
 
   //The animation of the circles
-
-  x=x+1.5;
-  x1=x1+1.5;
-  x2=x2+1.5;
-  x3=x3+1.5;
-  x4=x4+1.5;
+  
+fill(0);
+text(""+a1,x-10,100);
+text(""+a2,x1-10,100);
+text(""+a3,x2-10,100);
+text(""+a4,x3-10,100);
+text(""+a5,x4-10,100);
+fill(255);
+  x=x+1.2;
+  x1=x1+1.2;
+  x2=x2+1.2;
+  x3=x3+1.2;
+  x4=x4+1.2;
 
   //The box for the equation or question box
 
@@ -52,9 +69,10 @@ void draw() {
   line(370, 500, 370, 550);
   line(370, 550, 150, 550);
 
-text(""+y1,200,525);
-text("+"+y2,220,525);
-text("=",245,525);
+  text(""+y1, 200, 525);
+  text("+"+y2, 220, 525);
+  text("=", 245, 525);
+  
   //Line for the possible equation
 
   text("y:"+mouseY, 10, 10);
