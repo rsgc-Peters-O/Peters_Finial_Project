@@ -16,6 +16,7 @@ int a3;
 int a4;
 int a5;
 int y;
+int score = 1;
 
 void setup() {
   size (600, 600);
@@ -30,11 +31,11 @@ void setup() {
   x4=400;
   y1=int(random(0, 50));
   y2=int(random(0, 50));
-  a1= 27;
+  a1= y1+y2;
   a2= 45;
   a3= 21;
   a4= 56;
-  a5= y1+y2;
+  a5= 27;
 }
 
 void draw() {
@@ -74,6 +75,10 @@ void draw() {
   text(""+y1, 200, 525);
   text("+"+y2, 220, 525);
   text("=", 245, 525);
+  
+  // score
+  text("score", 10, 50);
+  fill(255);
 
   //Line for the possible equation
 
@@ -96,7 +101,9 @@ void draw() {
 }
 
 void mousePressed() {
-  if (mousePressed == a1) {
-    background(255);
+  if (mousePressed) {
+    if (dist(mouseX, mouseY, x, y) < 20) {
+      text("right answer", 100, 200);
+    }
   }
-  }
+}
