@@ -8,13 +8,13 @@ float x1;
 float x2;
 float x3;
 float x4;
-int y1;
-int y2;
-int a1;
-int a2;
-int a3;
-int a4;
-int a5;
+int y1; //For the random number generator
+int y2; //For the random number generator
+int a1; // Circle with the right answer
+int a2; // Circle with a random number(wrong answer)
+int a3; // Circle with a random number(wrong answer)
+int a4; // Circle with a random number(wrong answer)
+int a5; // Circle with a random number(wrong answer)
 int y;
 int score = 0; //To change score
 PImage background; //For background
@@ -23,7 +23,7 @@ boolean nextlevel; //To change to next level
 void setup() {
   size (600, 600);
 
-  //THe code for inserting the backround
+  //The code for inserting the backround
 
   background = loadImage("backround.png");
 
@@ -60,11 +60,11 @@ void draw() {
     //The animation of the circles
 
     fill(0);
-    text(""+a1, x-10, 100);
-    text(""+a2, x1-10, 100);
-    text(""+a3, x2-10, 100);
-    text(""+a4, x3-10, 100);
-    text(""+a5, x4-10, 100);
+    text(""+a1, x-10, 100);  //The numbers that display in the circles(Right Answer)
+    text(""+a2, x1-10, 100); //The numbers that display in the circles(Wrong Answer)
+    text(""+a3, x2-10, 100); //The numbers that display in the circles(Wrong Answer)
+    text(""+a4, x3-10, 100); //The numbers that display in the circles(Wrong Answer)
+    text(""+a5, x4-10, 100); //The numbers that display in the circles(Wrong Answer)
     fill(255);
     x=x+1.2;
     x1=x1+1.2;
@@ -84,16 +84,16 @@ void draw() {
     text("=", 245, 525); //The text for the equation
 
     // score
-    text("score: " + score, 10, 50);
+    text("score: " + score, 10, 50); //Displays the score when right answer is clicked
     fill(255);
 
     //Mouse clicker 
 
-    text("y:"+mouseY, 10, 10); 
-    text("x:"+mouseX, 20, 20); 
+    text("y:"+mouseY, 10, 10); //Shows the Cordinates
+    text("x:"+mouseX, 20, 20); //Shows the Cordinates
     stroke(255);
-    line(mouseX-10, mouseY, mouseX+10, mouseY);
-    line(mouseX, mouseY-10, mouseX, mouseY+10);
+    line(mouseX-10, mouseY, mouseX+10, mouseY); //Horizontal line for the cross hair
+    line(mouseX, mouseY-10, mouseX, mouseY+10); //Vertical line fot the croos hair
 
     //highscore = max(score, highscore);
 
@@ -118,7 +118,7 @@ void draw() {
 void mousePressed() {
   if (mousePressed) {
     if (dist(mouseX, mouseY, x, y) < 20) {
-      score++; //Add score when right answer is clicked
+      score++; //Adds (1) to score when right answer is clicked
       setup();
     }
   }
