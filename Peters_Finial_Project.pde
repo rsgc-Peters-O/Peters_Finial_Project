@@ -18,7 +18,6 @@ int a5; // Circle with a random number(wrong answer)
 int y;
 int score = 0; //To change score
 PImage background; //For background
-boolean nextlevel; //To change to next level
 
 void setup() {
   size (600, 600);
@@ -45,7 +44,6 @@ void setup() {
 }
 
 void draw() {
-  if (nextlevel = false) { //To change the background to new level when number reached
     background(0);
     fill(255);
 
@@ -106,12 +104,12 @@ void draw() {
     //line1=sqrt(c1);
     //line2=sqrt(c2);
     
-  } else if (score == 5) { //When the score is gets to the right number, next level appears
-    nextlevel = true;
-    background(255); //Background
-    image(background, 300, 300, 500, 500); //To insert the backround
+    if (score == 5) { //When the score is gets to the right number, next level appears
+      background(255); //Background
+      image(background, 125, 125, 375, 375); //To insert the backround
+    }
   }
-}
+
 
 //Mouse pressed on the right answer, the score goes up one each time
 
@@ -121,5 +119,12 @@ void mousePressed() {
       score++; //Adds (1) to score when right answer is clicked
       setup();
     }
+  }
+}
+
+void keyPressed() {
+  if ( key == 'p' || key == 'P') {
+    if (looping) noLoop();
+    else loop();
   }
 }
