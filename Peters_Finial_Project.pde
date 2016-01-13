@@ -16,9 +16,9 @@ int a3;
 int a4;
 int a5;
 int y;
-int score = 0;
-PImage background;
-boolean nextlevel;
+int score = 0; //To change score
+PImage background; //For background
+boolean nextlevel; //To change to next level
 
 void setup() {
   size (600, 600);
@@ -35,8 +35,8 @@ void setup() {
   x2=200;
   x3=300;
   x4=400;
-  y1=int(random(0, 50));
-  y2=int(random(0, 50));
+  y1=int(random(0, 50)); //Random number generator
+  y2=int(random(0, 50)); //Random number generator
   a1= y1+y2; //This is the code for the right answer
   a2= 45; //This code is   for the wrong answers
   a3= 21; //This code is   for the wrong answers
@@ -45,17 +45,18 @@ void setup() {
 }
 
 void draw() {
-  if (nextlevel = false) {
+  if (nextlevel = false) { //To change the background to new level when number reached
     background(0);
     fill(255);
 
     //The circles for the possible answers
 
-    ellipse( x, y, 40, 40);
-    ellipse(x1, 100, 40, 40);
-    ellipse(x2, 100, 40, 40);
-    ellipse(x3, 100, 40, 40);
-    ellipse(x4, 100, 40, 40);
+    ellipse( x, y, 40, 40); //Circle with the right answer
+    ellipse(x1, 100, 40, 40); //Circle with random varible 
+    ellipse(x2, 100, 40, 40); //Circle with random varible 
+    ellipse(x3, 100, 40, 40); //Circle with random varible 
+    ellipse(x4, 100, 40, 40); //Circle with random varible 
+
     //The animation of the circles
 
     fill(0);
@@ -73,23 +74,23 @@ void draw() {
 
     //The box for the equation or question box
 
-    line(150, 500, 150, 550);
-    line(150, 500, 370, 500);
-    line(370, 500, 370, 550);
-    line(370, 550, 150, 550);
+    line(150, 500, 150, 550); //Line (side) for the box
+    line(150, 500, 370, 500); //Line (side) for the box
+    line(370, 500, 370, 550); //Line (side) for the box
+    line(370, 550, 150, 550); //Line (side) for the box
 
-    text(""+y1, 200, 525);
-    text("+"+y2, 220, 525);
-    text("=", 245, 525);
+    text(""+y1, 200, 525); //The text for the equation
+    text("+"+y2, 220, 525); //The text for the equation
+    text("=", 245, 525); //The text for the equation
 
     // score
     text("score: " + score, 10, 50);
     fill(255);
 
-    //Line for the possible equation
+    //Mouse clicker 
 
-    text("y:"+mouseY, 10, 10);
-    text("x:"+mouseX, 20, 20);
+    text("y:"+mouseY, 10, 10); 
+    text("x:"+mouseX, 20, 20); 
     stroke(255);
     line(mouseX-10, mouseY, mouseX+10, mouseY);
     line(mouseX, mouseY-10, mouseX, mouseY+10);
@@ -104,20 +105,20 @@ void draw() {
     //c2=sq(a6)+sq(b1);
     //line1=sqrt(c1);
     //line2=sqrt(c2);
-
-    if (score == 5) {
-      nextlevel = true;
-      background(255);
-      image(background, 300, 300, 500, 500); //To insert the backround
-    }
+    
+  } else if (score == 5) { //When the score is gets to the right number, next level appears
+    nextlevel = true;
+    background(255); //Background
+    image(background, 300, 300, 500, 500); //To insert the backround
   }
 }
 
+//Mouse pressed on the right answer, the score goes up one each time
 
 void mousePressed() {
   if (mousePressed) {
     if (dist(mouseX, mouseY, x, y) < 20) {
-      score++;
+      score++; //Add score when right answer is clicked
       setup();
     }
   }
