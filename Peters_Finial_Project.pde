@@ -18,8 +18,11 @@ int a5; // Circle with a random number(wrong answer)
 int y;
 int score = 0; //To change score
 PImage background; //For background
+//PImage mainbackground; 
 int start;
 boolean error;
+boolean firstlevel, secondlevel;
+boolean levelclick;
 
 
 
@@ -29,6 +32,7 @@ void setup() {
   //The code for inserting the backround
 
   background = loadImage("backround.png");
+  //mainbackground = loadImage("mainbackground.jpg");
 
   //Timer
 
@@ -63,10 +67,10 @@ void draw() {
   //The circles for the possible answers
 
   ellipse( x, y, 40, 40); //Circle with the right answer
-  ellipse(x1, 100, 40, 40); //Circle with random varible 
-  ellipse(x2, 100, 40, 40); //Circle with random varible 
-  ellipse(x3, 100, 40, 40); //Circle with random varible 
-  ellipse(x4, 100, 40, 40); //Circle with random varible 
+  ellipse(x1, y, 40, 40); //Circle with random varible 
+  ellipse(x2, y, 40, 40); //Circle with random varible 
+  ellipse(x3, y, 40, 40); //Circle with random varible 
+  ellipse(x4, y, 40, 40); //Circle with random varible 
 
   //The animation of the circles
 
@@ -123,6 +127,9 @@ void draw() {
   }
 }
 
+//Main Background
+
+//image (mainbackground, 300, 300, 50, 50);
 
 //Mouse pressed on the right answer, the score goes up one each time
 
@@ -139,7 +146,19 @@ void keyPressed() {
   if ( key == 'p' || key == 'P') {
     if (looping) noLoop();
     else loop();
-    
-    
+  } else if (mousePressed && secondlevel == true) {
+    levelclick = true;
+  }
+
+  if (mousePressed) {
+    if (dist(mouseX, mouseY, x1, y) < 20) {
+      noLoop();
+
+      if (mousePressed) {
+        if (dist(mouseX, mouseY, x2, y) < 20) {
+          noLoop();
+        }
+      }
+    }
   }
 }
