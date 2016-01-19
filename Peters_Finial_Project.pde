@@ -25,7 +25,6 @@ boolean firstlevel, secondlevel;
 boolean levelclick;
 
 
-
 void setup() {
   size (600, 600);
 
@@ -40,12 +39,31 @@ void setup() {
 
   //Animations of the circles
 
-  x=0;
+  x = (int) random(0, 5);
   y = 100;
-  x1=100;
-  x2=200;
-  x3=300;
-  x4=400;
+ 
+  x1 = (int) random(0, 5);
+  
+  while(x1 == x)x1 = (int) random(0, 5);
+  
+  x2 = (int)random(0, 5);
+  
+  while(x2 == x1 || x2 == x)x2 = (int)random(0, 5);
+  
+  x3 = (int)random(0, 5);
+  
+  while(x3 == x2 || x3 == x1 || x3 == x)x3 = (int)random(0, 5);
+  
+  x4= (int)random(0, 5);
+  
+  while(x4 == x3 || x4 == x2 || x4 == x1 || x4 == x)x4 = (int)random(0, 5);
+  
+  x = x* 100;
+  x1 = x1* 100;
+  x2 = x2* 100;
+  x3 = x3* 100;
+  x4 = x4* 100;
+  
   y1=int(random(0, 50)); //Random number generator
   y2=int(random(0, 50)); //Random number generator
   a1= y1+y2; //This is the code for the right answer
@@ -138,15 +156,7 @@ void mousePressed() {
     if (dist(mouseX, mouseY, x, y) < 20) {
       score++; //Adds (1) to score when right answer is clicked
       setup();
-    }
-  }
-}
-
-void keyPressed() {
-  if ( key == 'p' || key == 'P') {
-    if (looping) noLoop();
-    else loop();
-  } else if (mousePressed && secondlevel == true) {
+    }else if (mousePressed && secondlevel == true) {
     levelclick = true;
   }
 
@@ -161,4 +171,12 @@ void keyPressed() {
       }
     }
   }
+  }
+}
+
+void keyPressed() {
+  if ( key == 'p' || key == 'P') {
+    if (looping) noLoop();
+    else loop();
+  } 
 }
