@@ -38,6 +38,8 @@ void setup() {
   start = millis();
 
   //Animations of the circles
+  
+  //Randimzes the Circle with the answer
 
   x = (int) random(0, 5);
   y = 100;
@@ -139,6 +141,8 @@ void draw() {
   //line1=sqrt(c1);
   //line2=sqrt(c2);
 
+  if(x > 650 && x1 > 650 && x2 > 650 && x3 > 650 && x4 > 650)noLoop();
+  
   if (score == 5) { //When the score  gets to the right number, next level appears
     background(255); //Background
     image(background, 125, 125, 375, 375); //To insert the backround
