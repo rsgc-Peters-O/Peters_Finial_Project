@@ -38,34 +38,34 @@ void setup() {
   start = millis();
 
   //Animations of the circles
-  
+
   //Randimzes the Circle with the answer
 
   x = (int) random(0, 5);
   y = 100;
- 
+
   x1 = (int) random(0, 5);
-  
-  while(x1 == x)x1 = (int) random(0, 5);
-  
+
+  while (x1 == x)x1 = (int) random(0, 5);
+
   x2 = (int)random(0, 5);
-  
-  while(x2 == x1 || x2 == x)x2 = (int)random(0, 5);
-  
+
+  while (x2 == x1 || x2 == x)x2 = (int)random(0, 5);
+
   x3 = (int)random(0, 5);
-  
-  while(x3 == x2 || x3 == x1 || x3 == x)x3 = (int)random(0, 5);
-  
+
+  while (x3 == x2 || x3 == x1 || x3 == x)x3 = (int)random(0, 5);
+
   x4= (int)random(0, 5);
-  
-  while(x4 == x3 || x4 == x2 || x4 == x1 || x4 == x)x4 = (int)random(0, 5);
-  
+
+  while (x4 == x3 || x4 == x2 || x4 == x1 || x4 == x)x4 = (int)random(0, 5);
+
   x = x* 100;
   x1 = x1* 100;
   x2 = x2* 100;
   x3 = x3* 100;
   x4 = x4* 100;
-  
+
   y1=int(random(0, 50)); //Random number generator
   y2=int(random(0, 50)); //Random number generator
   a1= y1+y2; //This is the code for the right answer
@@ -141,8 +141,8 @@ void draw() {
   //line1=sqrt(c1);
   //line2=sqrt(c2);
 
-  if(x > 650 && x1 > 650 && x2 > 650 && x3 > 650 && x4 > 650)noLoop();
-  
+  if (x > 650 && x1 > 650 && x2 > 650 && x3 > 650 && x4 > 650)noLoop();
+
   if (score == 5) { //When the score  gets to the right number, next level appears
     background(255); //Background
     image(background, 125, 125, 375, 375); //To insert the backround
@@ -160,21 +160,21 @@ void mousePressed() {
     if (dist(mouseX, mouseY, x, y) < 20) {
       score++; //Adds (1) to score when right answer is clicked
       setup();
-    }else if (mousePressed && secondlevel == true) {
-    levelclick = true;
-  }
+    } else if (mousePressed && secondlevel == true) {
+      levelclick = true;
+    }
 
-  if (mousePressed) {
-    if (dist(mouseX, mouseY, x1, y) < 20) {
-      noLoop();
+    if (mousePressed) {
+      if (dist(mouseX, mouseY, x1, y) < 20) {
+        noLoop();
 
-      if (mousePressed) {
-        if (dist(mouseX, mouseY, x2, y) < 20) {
-          noLoop();
+        if (mousePressed) {
+          if (dist(mouseX, mouseY, x2, y) < 20) {
+            noLoop();
+          }
         }
       }
     }
-  }
   }
 }
 
@@ -182,5 +182,5 @@ void keyPressed() {
   if ( key == 'p' || key == 'P') {
     if (looping) noLoop();
     else loop();
-  } 
+  }
 }
